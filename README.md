@@ -5,21 +5,21 @@
   * Rails
 
 ## Setup
-Instalando gems
+#### Instalando gems
 
 $ ```bundle install```
 
-Criar o banco e as tabelas
+#### Criar o banco e as tabelas
 
 $ ```rake db:create```
 
 $ ```rake db:migrate```
 
-Colocar alguns exemplos no banco :)
+#### Colocar alguns exemplos no banco :)
 
 $ ```rake db:seed```
 
-Rodar o Server
+#### Rodar o Server
 
 $ ```rails s```
 
@@ -27,6 +27,6 @@ ou
 
 $ ```rails server```
 
-Visualizar rotas:
+#### Visualizar rotas:
 
 $ ```rails routes```
