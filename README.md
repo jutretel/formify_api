@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Dependências:
+  * Ruby
+  * Rails
 
-Things you may want to cover:
+## Setup
+#### Instalando gems
 
-* Ruby version
+$ ```bundle install```
 
-* System dependencies
+#### Criar o banco e as tabelas
 
-* Configuration
+$ ```rake db:create```
 
-* Database creation
+$ ```rake db:migrate```
 
-* Database initialization
+#### Colocar alguns exemplos no banco :)
 
-* How to run the test suite
+$ ```rake db:seed```
 
-* Services (job queues, cache servers, search engines, etc.)
+#### Rodar o Server
 
-* Deployment instructions
+$ ```rails s```
 
-* ...
+ou
+
+$ ```rails server```
+
+#### Visualizar rotas:
+
+$ ```rails routes```
