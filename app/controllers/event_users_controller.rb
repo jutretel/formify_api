@@ -1,21 +1,23 @@
-class EventUsersController < EventsController
+class EventUsersController < ApplicationController
   before_action :set_event_user, only: [:show, :update, :destroy]
-
-  def index_event_users
-    EventUser.all
-  end
 
   # GET /event_users
   def index
-    @event_users = index_event_users
+    @event_users = EventUser.all
 
     render json: @event_users
   end
 
   def search_by_user
-    @event_users_by_user = EventUser.where(user_id: params[:user_id])
+    @event_types = EventUser.where(user_id: params[:user_id])
 
-    render json: @event_users_by_user
+    render json: @event_types
+  end
+
+  def search_by_event
+    @event_types = EventUser.where(event_id: params[:event_id])
+
+    render json: @event_types
   end
 
   # GET /event_users/1

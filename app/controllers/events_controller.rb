@@ -1,17 +1,31 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :update, :destroy]
 
-  def index_events
-    Event.all
-  end
-
-  # GET /events
-  def index
-    @events = index_events
+  def search_by_type
+    @events = Event.where(event_type_id: params[:event_type_id])
 
     render json: @events
   end
 
+  def search_by_location
+    @event_types = Event.where(location_id: params[:location_id])
+
+    render json: @event
+  end
+
+  def search_by_user
+    @events = Event.where(user_id: params[:user_id])
+
+    render json: @events
+  end
+
+  # GET /events
+  def index
+    @events = Event.all
+
+    render json: @events
+  end
+  
   # GET /events/1
   def show
     render json: @event

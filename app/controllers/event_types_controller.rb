@@ -1,17 +1,13 @@
 class EventTypesController < ApplicationController
   before_action :set_event_type, only: [:show, :update, :destroy]
 
-  def index_event_types
-    EventType.all
-  end
-
   # GET /event_types
   def index
-    @event_types = index_event_types
+    @event_types = EventType.all
 
     render json: @event_types
   end
-
+  
   # GET /event_types/1
   def show
     render json: @event_type

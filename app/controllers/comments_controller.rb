@@ -1,13 +1,21 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :update, :destroy]
 
-  def index_comments
-    Comment.all
+  def search_by_event
+    @comments = Comment.where(event_id: params[:event_id])
+
+    render json: @comments
+  end
+
+  def search_by_user
+    @comments = Comment.where(user_id: params[:user_id])
+    
+    render json: @comments
   end
 
   # GET /comments
   def index
-    @comments = index_comments
+    @comments = Comment.all
 
     render json: @comments
   end
