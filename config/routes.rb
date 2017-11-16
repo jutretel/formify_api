@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :event_type,
-            :locations,
-            :users
+            :locations
+  
+  resources :users
+  post '/users/login' => 'users#login'
 
   resources :event_users
 
