@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :event_type,
+  resources :event_types,
             :locations
   
   resources :users
