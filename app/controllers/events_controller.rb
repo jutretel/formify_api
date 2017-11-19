@@ -1,6 +1,13 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :update, :destroy]
 
+  def get_followed_events
+    event_ids = EventUser.where(user_id: params[:user_id]).pluck(:event_id)
+    @events = Event.where(:id => event_ids)
+
+    render json: @events
+  end
+
   def search_by_type
     @events = Event.where(event_type_id: params[:event_type_id])
 

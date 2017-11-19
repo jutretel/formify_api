@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   
   resources :users
   post '/users/login' => 'users#login'
-
+  get '/users/email/:email' => 'users#search_by_email'
+  
   resources :event_users
 
   get '/event_users/user/:user_id/' => 'event_users#search_by_user'
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   get '/events/type/:event_type_id' => 'events#search_by_type' 
   get '/events/location/location_id' => 'events#search_by_location'
   get '/events/user/:user_id' => 'events#search_by_user'
+  get '/events/followed/:user_id' => 'events#get_followed_events'
 
   resources :comments
 

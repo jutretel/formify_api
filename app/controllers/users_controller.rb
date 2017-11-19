@@ -17,6 +17,11 @@ class UsersController < ApplicationController
     render json: @users.first
   end
 
+  def search_by_email
+    @users = User.where(email: params[:email])
+    render json: @users.first
+  end
+
   # GET /users/1
   def show
     render json: @user
