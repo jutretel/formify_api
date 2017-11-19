@@ -14,10 +14,26 @@ class EventsController < ApplicationController
     render json: @events
   end
 
-  def search_by_location
-    @event_types = Event.where(location_id: params[:location_id])
+  def search_by_name
+    @events = Event.where("name LIKE :name", name: "%#{params[:event_name]}%")
 
-    render json: @event
+    render json: @events
+  end
+
+  def search_by_location
+    location_id = Location.find_by(name: params[:event_location]).id
+
+    @events = Event.where(location_id: location_id)
+
+    render json: @events
+  end
+
+  def search_by_date
+    date = Time.parse(params[:event_date])
+    date = date.strftime("%Y-%m-%d")
+    @events = Event.where("start_date LIKE :query", query: "%#{date}%")
+
+    render json: @events
   end
 
   def search_by_user

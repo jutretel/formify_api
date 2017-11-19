@@ -13,10 +13,12 @@ Rails.application.routes.draw do
 
   resources :events
 
-  get '/events/type/:event_type_id' => 'events#search_by_type' 
-  get '/events/location/location_id' => 'events#search_by_location'
+  get '/events/type/:event_type_id' => 'events#search_by_type'
   get '/events/user/:user_id' => 'events#search_by_user'
   get '/events/followed/:user_id' => 'events#get_followed_events'
+  get '/events/name/:event_name' => 'events#search_by_name'
+  get '/events/date/:event_date' => 'events#search_by_date'
+  get '/events/location/:event_location' => 'events#search_by_location'
 
   resources :comments
 
