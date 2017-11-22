@@ -5,6 +5,14 @@ class UsersController < ApplicationController
     User.all
   end
 
+  def search_by_name
+    @events = User.where("name LIKE :name", name: "%#{params[:user_name]}%")
+
+    render json: @events
+  end
+
+  
+
   # GET /users
   def index
     @users = index_users

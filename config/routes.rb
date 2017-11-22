@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
   post '/users/login' => 'users#login'
   get '/users/email/:email' => 'users#search_by_email'
+  get '/users/name/:user_name' => 'users#search_by_name'
   
   resources :event_users
 
