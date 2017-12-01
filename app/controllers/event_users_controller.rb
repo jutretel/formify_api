@@ -9,15 +9,25 @@ class EventUsersController < ApplicationController
   end
 
   def search_by_user
-    @event_types = EventUser.where(user_id: params[:user_id])
+    @event_users = EventUser.where(user_id: params[:user_id])
 
-    render json: @event_types
+    render json: @event_users
   end
 
   def search_by_event
-    @event_types = EventUser.where(event_id: params[:event_id])
+    @event_users = EventUser.where(event_id: params[:event_id])
 
-    render json: @event_types
+    render json: @event_users
+  end
+
+  def last_participation
+    @event_user = EventUser.where(user_id: params[:user_id], event_id: params[:event_id]).last
+
+    render json: @event_user
+  end
+
+  def delete_participation
+    @event_users = EventUser.where(user_id: params[:user_id], event_id: params[:event_id]).last.destroy
   end
 
   # GET /event_users/1

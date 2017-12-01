@@ -71,7 +71,7 @@ Event.create!([
 		description: "Diversos minicursos e palestras sobre tecnologia",
 		rating: 5.0,
 		is_public: true,
-		status: "Finished",
+		status: "Closed",
 		user_id: 3,
 		event_type_id: 6,
 		location_id: 6
@@ -83,7 +83,7 @@ Event.create!([
 		description: "Vamos aprender a fazer Cerveja!",
 		rating: 5.0,
 		is_public: false,
-		status: "Canceled",
+		status: "Open",
 		user_id: 3,
 		event_type_id: 2,
 		location_id: 3
@@ -95,7 +95,7 @@ Event.create!([
 		description: "Palestra para quem quiser aprender mais sobre o ElasticSearch.",
 		rating: 5.0,
 		is_public: true,
-		status: "Finished",
+		status: "Closed",
 		user_id: 1,
 		event_type_id: 1,
 		location_id: 6
