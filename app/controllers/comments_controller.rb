@@ -2,7 +2,14 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :update, :destroy]
 
   def search_by_event
-    @comments = Comment.where(event_id: params[:event_id])
+    comments = Comment.includes(:user).joins(:user).select(:name,:content).where(event_id: params[:event_id]) 
+    users = []
+
+    comments.each do |c|
+      users << c.user
+    end
+
+    @comments = comments.zip users
 
     render json: @comments
   end
