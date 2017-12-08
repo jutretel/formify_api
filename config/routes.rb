@@ -34,4 +34,5 @@ Rails.application.routes.draw do
   resources :notifications
 
   get '/notifications/user/:user_id' => 'notifications#search_by_user'
+  post '/notifications/email/' => 'notifications#create_by_email'
 end
