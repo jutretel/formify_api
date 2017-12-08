@@ -20,6 +20,14 @@ class EventUsersController < ApplicationController
     render json: @event_users
   end
 
+  def get_following_users
+    follows = EventUser.where(event_id: params[:event_id])
+
+    @users = follows.pluck(:user_id)
+
+    render json: @users
+  end
+
   def last_participation
     @event_user = EventUser.where(user_id: params[:user_id], event_id: params[:event_id]).last
 

@@ -76,6 +76,10 @@ class EventsController < ApplicationController
 
   # DELETE /events/1
   def destroy
+    event_users = EventUser.where(event_id: params[:event_id])
+
+    event_users.destroy_all
+
     @event.destroy
   end
 

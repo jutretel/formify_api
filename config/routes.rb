@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get '/event_users/user/:user_id/' => 'event_users#search_by_user'
   get '/event_users/event/:event_id' => 'event_users#search_by_event'
+  get '/event_users/following_users/:event_id' => 'event_users#get_following_users'
   get '/event_users/:user_id/:event_id' => 'event_users#last_participation'
   delete '/event_users/:user_id/:event_id' => 'event_users#delete_participation'
 
