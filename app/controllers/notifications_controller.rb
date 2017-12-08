@@ -9,7 +9,7 @@ class NotificationsController < ApplicationController
 
   # GET /notifications
   def index
-    @notifications = index_notifications
+    @notifications = Notification.all
 
     render json: @notifications
   end
@@ -22,6 +22,18 @@ class NotificationsController < ApplicationController
   # POST /notifications
   def create
     @notification = Notification.new(notification_params)
+
+    if @notification.save
+      render json: @notification, status: :created, location: @notification
+    else
+      render json: @notification.errors, status: :unprocessable_entity
+    end
+  end
+
+  def create_by_email
+    notification = params[:notification]
+
+    @notification = Notification.new(description: notification[:description], user_id: User.find_by(email: notification[:user_email])[:id])
 
     if @notification.save
       render json: @notification, status: :created, location: @notification
